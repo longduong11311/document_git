@@ -1,0 +1,75 @@
+HƯỚNG DẪN DÙNG GIT, GITHUB
+
+* Lệnh cơ bản
+git init   ( tạo 1 project git trong file)
+git clone  ( download từ github)
+git pull   ( đồng bộ dữ liệu trên git xuống máy)
+git add    ( thêm 1 file or folder)
+git add .  ( thêm tòan bộ file or folder)
+git commit ( thêm mô tả cho file or folder)
+git push   ( push code, file lên mạng)
+git log    ( log file trong git)
+---------------------------------------------------------
+Bước 1: Cài git
+sudo apt install git-all
+Bước 2: Tạo new repository ( lên github tạo, đặt tên)
+Bước 3: Từ project trong máy
+git init
+git status  (check các file trong thư mục)
+Bước 4: Add file, thư mục
+git add <ten-file or ten-folder>
+Bước 5: đặt mô tar cho file or folder
+git commit -m "mo-ta"
+(Nếu mới dùng lệnh lần đầu, nó sẽ báo lỗi)
+(Do không link địa chỉ git của mình với máy)
+(Để link dùng lệnh)
+git config --global user.email "you@example.com"
+git config --gbobal user.name "Your name"
+Bước 6: kiểm tra mô tả được gắn vào file or folder chưa?
+git log
+Bước 7: Gắn địa chỉ git vào máy để publish code lên
+git remote add origin https://github.com/...
+(Lệnh này có trên git phần lúc tạo, copy thôi)
+git push -u origin master
+(đưa code lên nhánh là master)
+=> Lúc này code mới lên github.
+-----------------------------------------------------------
+Bước 8: Trong quá trình code, sinh thêm file các kiểu
+git add <ten-file>
+git add . (thêm hết file)
+git commit - m "mo-ta"
+git push
+Bước 9: Trong quá trình làm project nhiều người
+(Để đồng bộ git với máy dùng)
+git pull
+TH họ sửa file trên mạng, mình cũng sửa file chuẩn bị up lên
+Nếu mình up lên thông thường sẽ báo lỗi
+Để khắc phục phải đồng bộ trước, rồi sửa, sau đó up lên lại
+git pull
+Kiểm tra code, chọn chỗ cần sửa lại
+git add . 
+git commit - m "mo-ta"
+git push
+-------------------------------------------------------------
+* Sử dụng branch
+Các lệnh cơ bản            Các lệnh nâng cao 
+git branch 		   git rebase 
+git checkout		   git cherry-pick 
+git merge 
+
+Bước 1: Tạo branch
+git branch <ten-branch>
+git branch
+Bước 2: Chuyển code từ master sang branch và ngược lại 
+git checkout <ten-branch>
+git checkout <ten-master>
+Bước 3: Đẩy file để app vô branch
+git push --set-upstream origin <ten-branch>
+Dùng như thường
+git add .
+git commit -m "mo-ta"
+git push
+Bước 4: Khi code xong branch muốn gộp với master
+Link đến master
+git checkout <ten-master>
+git merge <ten-branch>
